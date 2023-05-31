@@ -23,6 +23,7 @@ import java.util.Arrays;
 
         @Override
         protected void configure(HttpSecurity http) throws Exception {
+            //pegar o perfil do ambiente e liberar os frames para visualizar o banco h2 apenas para o perfil de test.
             if (Arrays.asList(env.getActiveProfiles()).contains("test")) {
                 http.headers().frameOptions().disable();
             }
